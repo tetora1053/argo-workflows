@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import {Checkbox} from 'argo-ui';
+import React, {useState} from 'react';
 import {Parameter, ResubmitOpts, Workflow} from '../../../models';
 import {uiUrl} from '../../shared/base';
 import {ErrorNotice} from '../../shared/components/error-notice';
@@ -33,8 +33,8 @@ export function ResubmitWorkflowPanel(props: Props) {
             document.location.href = uiUrl(`workflows/${submitted.metadata.namespace}/${submitted.metadata.name}`);
         };
 
-        const handleError = (error: Error) => {
-            setError(error);
+        const handleError = (err: Error) => {
+            setError(err);
             setIsSubmitting(false);
         };
 
@@ -69,9 +69,7 @@ export function ResubmitWorkflowPanel(props: Props) {
                 {overrideParameters && (
                     <div key='parameters' style={{marginBottom: 25}}>
                         <label>Parameters</label>
-                        {workflowParameters.length > 0 && (
-                            <ParametersInput parameters={workflowParameters} onChange={setWorkflowParameters} />
-                        )}
+                        {workflowParameters.length > 0 && <ParametersInput parameters={workflowParameters} onChange={setWorkflowParameters} />}
                         {workflowParameters.length === 0 && (
                             <>
                                 <br />
