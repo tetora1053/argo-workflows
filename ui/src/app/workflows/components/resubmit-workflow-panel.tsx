@@ -14,7 +14,7 @@ interface Props {
 
 export function ResubmitWorkflowPanel(props: Props) {
     const [overrideParameters, setOverrideParameters] = useState(false);
-    const [workflowParameters, setWorkflowParameters] = useState<Parameter[]>(props.workflow.spec.arguments.parameters || []);
+    const [workflowParameters, setWorkflowParameters] = useState<Parameter[]>(JSON.parse(JSON.stringify(props.workflow.spec.arguments.parameters || [])));
     const [memoized, setMemoized] = useState(false);
     const [error, setError] = useState<Error>();
     const [isSubmitting, setIsSubmitting] = useState(false);

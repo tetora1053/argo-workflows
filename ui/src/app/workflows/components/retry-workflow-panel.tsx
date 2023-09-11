@@ -17,7 +17,7 @@ export function RetryWorkflowPanel(props: Props) {
     const [restartSuccessful, setRestartSuccessful] = useState<boolean>(false);
     const [workflowParameters, setWorkflowParameters] = useState<Parameter[]>(JSON.parse(JSON.stringify(props.workflow.spec.arguments.parameters || [])));
     const [nodeFieldSelector, setNodeFieldSelector] = useState<string>('');
-    const [error, setError] = useState<Error | undefined>();
+    const [error, setError] = useState<Error>();
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     const submit = () => {
